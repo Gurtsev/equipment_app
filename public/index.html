@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Учет оборудования</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>📦 Учет оборудования</h2>
+        
+        <div class="form-group">
+            <input type="text" id="title" placeholder="Название">
+            <input type="text" id="serial" placeholder="Серийный номер">
+            <select id="status">
+                <option value="На складе">📦 На складе</option>
+                <option value="У сотрудника">👨‍💻 У сотрудника</option>
+                <option value="В ремонте">🛠 В ремонте</option>
+            </select>
+            <button onclick="addAsset()">Добавить</button>
+        </div>
+
+        <div class="form-group" style="margin-top: 20px;">
+            <input type="text" id="searchInput" placeholder="🔍 Поиск по названию или S/N...">
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th><th>Название</th><th>S/N</th><th>Статус</th><th>Действия</th>
+                </tr>
+            </thead>
+            <tbody id="assetsTable"></tbody>
+        </table>
+    </div>
+
+    <!-- Модальное окно QR -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <div id="qrcode"></div>
+            <p id="qrText"></p>
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <button onclick="printQR()" style="background:#28a745;">🖨️ Печать</button>
+                <button onclick="closeModal()" style="background:#6c757d;">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
