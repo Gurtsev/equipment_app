@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "concurrently \"nodemon index.js\" \"npm run dev --prefix client\"",
+    "dev:server": "nodemon index.js",
+    "build": "npm run build --prefix client"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +23,7 @@
     "qrcode": "^1.5.4"
   },
   "devDependencies": {
+    "concurrently": "^9.2.1",
     "nodemon": "^3.1.14"
   }
 }
